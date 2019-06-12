@@ -1,60 +1,53 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import "./index.scss"
-class TestComponent extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            name: "Hiiiiii",
-            age: 18
-        }
-    }
-    handleClick = () => {
-        this.setState({ age: this.state.age + 1 });
-    }
-    render() {
-        return <div>
-            <h1>I am {this.state.name} {this.props.sex}</h1>
-            <p>age {this.state.age}</p>
-            <button onClick={this.handleClick}>加</button>
-        </div>
-    }
-}
-class Title extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-    render(props) {
-        return <h1>{this.props.title}</h1>
-    }
-}
-class TitleChildren extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-    render(props) {
-        return <h1>{this.props.children}</h1>
-    }
-}
 class App extends React.Component {
+    constructor(props) {
+        super(props)
+        this.setState = {
+            data: "Old"
+        }
+        console.log("开始 构造函数 初始化数据--constructor")
+    }
+    componentWillMount() {
+        console.log("组件将要加载---componentWillMount")
+    }
+    componentDidMount() {
+        console.log("组件加载完成---componentDidMount")
+    }
+    componentWillReceiveProps() {
+        console.log("将要接收父组件传来的props----componentWillReceiveProps")
+    }
+    shouldComponentUpdate() {
+        console.log("子组件是不是应该更新---shouldComponentUpdate")
+        //这里给的布尔值 可以告诉组件是否要根据数据的变化进行更新
+        return true
+    }
+    //组件将要更新
+    componentWillUpdate() {
+        console.log("如果shouldComponentUpdate返回的是true,这里将要更新componentWillUpdate")
+    }
+    componentDidUpdate() {
+        console.log("组件更新完成--componentDidUpdate")
+    }
+
+    handleClick = () => {
+        console.log("点击了更新")
+        this.setState({ data: "New State" })
+    }
     render() {
+        console.log("渲染----render")
         return (
-            <div>
-                <div>appppppppppppppp</div>
-                <Title title="App Title" />
-                <TitleChildren>
-                    <span>App Span</span>
-                    <a href="">link</a>
-                </TitleChildren>
-                <TestComponent />
-            </div>
+            <React.Fragment>
+                <div>APP</div>
+                <button onClick={this.handleClick}>更新组件</button>
+            </React.Fragment>
         )
     }
 }
+
 ReactDOM.render(
-    <React.Fragment>
-        <TestComponent sex="lv" />
-    </React.Fragment>
+    <App />
     ,
     document.getElementById("app")
 )
