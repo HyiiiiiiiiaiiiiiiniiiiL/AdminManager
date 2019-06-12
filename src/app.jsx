@@ -1,13 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import 'font-awesome/css/font-awesome.min.css'
-import "./index.css"
 import "./index.scss"
+
+let style = {
+    backGround: "bisque"
+}
+let jsx = <div style={style}>jsx.....
+<p className="jsx">ces........</p>
+</div>
 ReactDOM.render(
-    <div>
-        <i className="fa fa-address-book"></i>
-        <h1>Hello React</h1>
-    </div>
-    ,
-    document.getElementById('app')
+    jsx,
+    document.getElementById("app")
 )
