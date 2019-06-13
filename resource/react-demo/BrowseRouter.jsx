@@ -33,8 +33,6 @@ class Wrapper extends React.Component {
             <div>
                 <Link to="/a">组件A</Link>
                 <br/>
-                <Link to="/a/123">带参数的组件A</Link>
-                <br/>
                 <Link to="/b">组件B</Link>
                 {this.props.children}
             </div>

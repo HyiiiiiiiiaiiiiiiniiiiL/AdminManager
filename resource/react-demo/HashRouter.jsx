@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {BrowserRouter as Router,Route,Link} from 'react-router-dom'  
+import {HashRouter as Router,Route,Link} from 'react-router-dom'  
 import "./index.scss"
 class A extends React.Component {
     constructor(props) {
@@ -32,9 +32,6 @@ class Wrapper extends React.Component {
         return (
             <div>
                 <Link to="/a">组件A</Link>
-                <br/>
-                <Link to="/a/123">带参数的组件A</Link>
-                <br/>
                 <Link to="/b">组件B</Link>
                 {this.props.children}
             </div>
