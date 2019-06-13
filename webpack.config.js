@@ -11,6 +11,12 @@ module.exports = {
         publicPath: '/dist/',
         filename: 'js/app.js'
     },
+    resolve: {
+        alias: {
+            page: path.resolve(__dirname, 'src/page'), //给路径起别名，应用的话直接就是page/xxxx/xxx
+            component: path.resolve(__dirname, 'src/component')
+        }
+    },
     module: {
         rules: [
             {
@@ -77,7 +83,10 @@ module.exports = {
         })
     ],
     devServer: {
-        port: 8086
+        port: 8086,
+        historyApiFallback: {
+            index: '/dist/index.html'
+        }
 
     }
 };
