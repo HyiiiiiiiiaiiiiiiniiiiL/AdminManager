@@ -14,7 +14,9 @@ module.exports = {
     resolve: {
         alias: {
             page: path.resolve(__dirname, 'src/page'), //给路径起别名，应用的话直接就是page/xxxx/xxx
-            component: path.resolve(__dirname, 'src/component')
+            component: path.resolve(__dirname, 'src/component'),
+            util: path.resolve(__dirname, 'src/util'),
+            service: path.resolve(__dirname, 'src/service')
         }
     },
     module: {
@@ -87,6 +89,15 @@ module.exports = {
         port: 8086,
         historyApiFallback: {
             index: '/dist/index.html'
+        },
+        proxy: {
+            //请求的时候，因为本地是localhost开头的，而后端是在其他的地址，这里就涉及跨域
+            //webpack devServer支持通过proxy来解决跨域问题，下面的定义
+            //表示，如果遇到/manage开头的，就跳转到target的地址去请求
+            "/manage": {
+                target: 'http://admintest.happymmall.com',
+                changeOrigin: true//如果不写changeOrigin会认为是localhost请求的，则无法识别
+            }
         }
 
     }
