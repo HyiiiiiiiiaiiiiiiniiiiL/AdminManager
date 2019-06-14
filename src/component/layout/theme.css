@@ -8,7 +8,6 @@ body {
 
 #wrapper {
     width: 100%;
-    background:#2b2e33;
 }
 
 #page-wrapper {
@@ -589,15 +588,12 @@ ul.nav.nav-second-level.collapse.in {
 ------------------------------------------------*/
  
 @media(max-width:768px) {
-
     .top-navbar{
         position: relative;
     }
     .top-navbar .navbar-brand{
         width: 100%;
     }
-    
-
     .navbar-side {
         z-index: 1;
         width: 100%;

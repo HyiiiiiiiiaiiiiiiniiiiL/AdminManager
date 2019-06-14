@@ -1,4 +1,7 @@
 import React from 'react'
+
+import NavTop from "component/nav-top/index.jsx"
+import NavSide from "component/nav-side/index.jsx"
 import "./theme.css"
 
 export default class Layout extends React.Component {
@@ -8,9 +11,8 @@ export default class Layout extends React.Component {
     render() {
         return (
             <div id="wrapper">
-                {/* <TopNav></TopNav>
-                <SideNav></SideNav> */}
-                layout text
+                <NavTop />
+                <NavSide />
                 {this.props.children}
             </div>
         )
