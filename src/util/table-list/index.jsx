@@ -7,6 +7,7 @@ export default class TableList extends React.Component {
             isFirstLoading: true
         }
     }
+    //触发更新根据props的变化来改变
     componentWillReceiveProps() {
         this.setState({
             isFirstLoading: false

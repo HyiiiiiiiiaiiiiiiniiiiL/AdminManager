@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Redirect, Route, Link } from 'react-ro
 import ProductList from 'page/product/index/index.jsx';
 
 
-class ProductRouter extends React.Component {
+export default class ProductRouter extends React.Component {
     render() {
         return (
             <Switch>
@@ -15,4 +15,3 @@ class ProductRouter extends React.Component {
         )
     }
 }
-export default ProductRouter;
