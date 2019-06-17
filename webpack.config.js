@@ -97,6 +97,10 @@ module.exports = {
             "/manage": {
                 target: 'http://admintest.happymmall.com',
                 changeOrigin: true//如果不写changeOrigin会认为是localhost请求的，则无法识别
+            },
+            "/user/logout.do": {
+                target: 'http://admintest.happymmall.com',
+                changeOrigin: true
             }
         }
 

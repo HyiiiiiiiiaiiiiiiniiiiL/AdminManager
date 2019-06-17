@@ -1,15 +1,24 @@
 import React from 'react'
 import { Link } from "react-router-dom"
+import MUtil from 'util/mm.jsx'
+import User from 'service/user-service.jsx'
 
+const _mm = new MUtil();
+const _user = new User();
 export default class NavTop extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            username: ''
+            username: _mm.getStorage("userInfo").username || ""
         }
     }
     onLogout = () => {
-
+        _user.logout().then(res => {
+            _mm.removeStorage("userInfo")
+            window.location.href = "/login"
+        }, errMsg => {
+            _mm.errorTips(errMsg)
+        })
     }
     render() {
         return (
@@ -31,7 +40,7 @@ export default class NavTop extends React.Component {
                         </a>
                         <ul className="dropdown-menu dropdown-user">
                             <li>
-                                <a onClick={this.onLogout()}>
+                                <a onClick={this.onLogout}>
                                     <i className="fa fa-sign-out fa-fw"></i>
                                     <span>退出登录</span>
                                 </a>
