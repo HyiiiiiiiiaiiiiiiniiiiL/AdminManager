@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Redirect, Route, Link } from 'react-ro
 // 页面
 import ProductList from 'page/product/index/index.jsx';
 import ProductSave from 'page/product/index/save.jsx';
+import ProductDetail from 'page/product/index/detail.jsx'
 
 
 export default class ProductRouter extends React.Component {
@@ -11,7 +12,8 @@ export default class ProductRouter extends React.Component {
         return (
             <Switch>
                 <Route path="/product/index" component={ProductList} />
-                <Route path="/product/save" component={ProductSave} />
+                <Route path="/product/save/:pid" component={ProductSave} />
+                <Route path="/product/detail/:pid" component={ProductDetail} />
                 <Redirect exact from="/product" to="/product/index" />
             </Switch>
         )

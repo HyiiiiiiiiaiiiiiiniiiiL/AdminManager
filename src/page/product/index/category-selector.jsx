@@ -20,20 +20,21 @@ export default class CategorySelector extends React.Component {
         this.loadFirstCategory()
     }
     componentWillReceiveProps(nextProps) {
+        //nextProps 将要传进来的props
         let categoryIdChange = this.props.categoryId !== nextProps.categoryId
         let parentCategoryIdChange = this.props.parentCategoryId !== nextProps.parentCategoryId
         //数据没有发生变化的时候，直接不做处理
         if (!categoryIdChange && !parentCategoryIdChange) {
             return;
         }
-        //假如只有一级品类
+        //假如只有一级品类,如果是一级品类，那么nextProps.parentCategoryId为0
         if (nextProps.parentCategoryId === 0) {
             this.setState({
                 firstCategoryId: nextProps.categoryId,
                 secondCategoryId: 0
             })
         } else {
-            //有两级品类
+            //有两级品类，就是一级品类和二级品类都存在
             this.setState({
                 firstCategoryId: nextProps.parentCategoryId,
                 secondCategoryId: nextProps.categoryId

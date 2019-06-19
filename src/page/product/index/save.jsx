@@ -42,6 +42,7 @@ export default class ProductSave extends React.Component {
                         url: res.imageHost + imgUri
                     }
                 })
+                //把第一次请求的富文本的值取出，后面新增的的文本，是在第一次取的值上做的更改
                 res.defaultDetail = res.detail
                 this.setState(res)
             }, errMsg => {
@@ -99,6 +100,9 @@ export default class ProductSave extends React.Component {
             status: this.state.status
         }
         let productCheckResult = _product.checkProduct(product)
+        if (this.state.id) {
+            product.id = this.state.id
+        }
         if (productCheckResult.status) {
             //表单验证成功
             _product.saveProduct(product).then(res => {
