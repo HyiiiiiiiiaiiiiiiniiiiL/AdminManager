@@ -76,7 +76,7 @@ export default class UserList extends React.Component {
                     <td>{category.id}</td>
                     <td>{category.name}</td>
                     <td>
-                        <a className="opear"
+                        <a className="opera"
                             onClick={(e) => this.onUpdateName(category.id, category.name)}>修改名称</a>
                         {
                             category.parentId === 0 ?
