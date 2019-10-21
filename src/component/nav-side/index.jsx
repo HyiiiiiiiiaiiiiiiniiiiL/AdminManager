@@ -55,18 +55,6 @@ export default class NavSide extends React.Component {
                                 </li>
                             </ul>
                         </li>
-                        <li className="active">
-                            <Link to="/shipin">
-                                <i className="fa fa-user-o"></i>
-                                <span>视频</span>
-                                <span className="fa arrow"></span>
-                            </Link>
-                            <ul className="nav nav-second-level collapse in">
-                                <li>
-                                    <NavLink to="/shipin" activeClassName="active-menu">视频控制</NavLink>
-                                </li>
-                            </ul>
-                        </li>
                     </ul>
                 </div>
             </div>
